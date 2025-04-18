@@ -69,6 +69,7 @@
       ]
     }
     </script>
+
 </head>
 <body>
     <header>
@@ -233,41 +234,11 @@
         <div class="container">
             <article class="service-article">
                 <h2>Beyaz Eşya Tamiri ve Bakımı Hakkında Bilmeniz Gerekenler</h2>
-                <p>Beyaz eşyalar, günlük hayatımızın vazgeçilmez parçalarıdır. Buzdolabı, çamaşır makinesi, bulaşık makinesi gibi cihazlar olmadan modern yaşamı sürdürmek neredeyse imkansızdır. Bu nedenle, beyaz eşyalarınızın düzgün çalışması ve uzun ömürlü olması büyük önem taşır.</p>
-                
-                <h3>Beyaz Eşya Arızalarının Nedenleri</h3>
-                <p>Beyaz eşya arızalarının birçok nedeni olabilir. En yaygın nedenler arasında şunlar yer alır:</p>
-                <ul>
-                    <li><strong>Yanlış Kullanım:</strong> Kullanım kılavuzunda belirtilen talimatlara uyulmaması, cihazların aşırı yüklenmesi veya yanlış programların kullanılması arızalara yol açabilir.</li>
-                    <li><strong>Elektrik Sorunları:</strong> Voltaj dalgalanmaları, elektrik kesintileri veya kısa devreler beyaz eşyalarınıza zarar verebilir.</li>
-                    <li><strong>Eskime ve Yıpranma:</strong> Tüm cihazlar gibi, beyaz eşyalar da zamanla eskir ve parçaları yıpranır. Düzenli bakım yapılmazsa, bu yıpranma daha hızlı gerçekleşir.</li>
-                    <li><strong>Kireçlenme:</strong> Özellikle su kullanan cihazlarda (çamaşır makinesi, bulaşık makinesi) kireçlenme önemli bir sorun olabilir.</li>
-                    <li><strong>Toz ve Kir Birikimi:</strong> Cihazların içinde biriken toz ve kir, performansı düşürebilir ve arızalara neden olabilir.</li>
-                </ul>
-                
-                <h3>Beyaz Eşyalarınızın Ömrünü Uzatmak İçin İpuçları</h3>
-                <p>Beyaz eşyalarınızın ömrünü uzatmak ve arıza riskini azaltmak için aşağıdaki ipuçlarını uygulayabilirsiniz:</p>
-                <ol>
-                    <li><strong>Kullanım Kılavuzunu Okuyun:</strong> Her cihazın kendine özgü kullanım talimatları vardır. Cihazınızı doğru şekilde kullanmak için mutlaka kullanım kılavuzunu okuyun.</li>
-                    <li><strong>Aşırı Yüklemeden Kaçının:</strong> Çamaşır ve bulaşık makinelerini kapasitelerinin üzerinde yüklemeyin. Bu, cihazın motoruna ve diğer parçalarına zarar verebilir.</li>
-                    <li><strong>Düzenli Temizlik Yapın:</strong> Cihazlarınızı düzenli olarak temizleyin. Buzdolabı, fırın, çamaşır makinesi ve bulaşık makinesi gibi cihazların filtrelerini ve iç kısımlarını temizlemek, performanslarını artırır ve ömürlerini uzatır.</li>
-                    <li><strong>Kireç Önleyici Kullanın:</strong> Su kullanan cihazlarda kireçlenmeyi önlemek için düzenli olarak kireç önleyici ürünler kullanın.</li>
-                    <li><strong>Profesyonel Bakım Yaptırın:</strong> Yılda en az bir kez profesyonel bakım yaptırmak, cihazlarınızın ömrünü uzatır ve büyük arızaların önüne geçer.</li>
-                </ol>
-                
-                <h3>Profesyonel Servis Hizmetinin Önemi</h3>
-                <p>Beyaz eşya arızalarında profesyonel servis hizmeti almak büyük önem taşır. Deneyimsiz kişiler tarafından yapılan müdahaleler, cihazınıza daha fazla zarar verebilir ve güvenlik risklerine yol açabilir. Profesyonel teknisyenler:</p>
-                <ul>
-                    <li>Doğru arıza tespiti yapar</li>
-                    <li>Orijinal yedek parçalar kullanır</li>
-                    <li>Güvenlik standartlarına uygun şekilde çalışır</li>
-                    <li>Garanti kapsamında hizmet sunar</li>
-                    <li>Cihazınızın performansını optimize eder</li>
-                </ul>
-                
-                <p>Teknik Servis olarak, tüm beyaz eşya markalarına profesyonel servis hizmeti sunmaktayız. Deneyimli teknisyen kadromuz, orijinal yedek parçalarımız ve 7/24 hizmet anlayışımız ile beyaz eşyalarınızın arızalarını hızlı ve kalıcı olarak çözüyoruz.</p>
-                
-                <p>Beyaz eşya arızalarında zaman kaybetmeden profesyonel destek almak, hem cihazınızın ömrünü uzatır hem de daha büyük masrafların önüne geçer. Herhangi bir sorun yaşadığınızda, 7/24 hizmet veren servis hattımızı arayarak teknik destek alabilirsiniz.</p>
+                <div id="makale-content" class="makale-content">
+                    <div class="loading-indicator">
+                        <i class="fa-solid fa-spinner"></i> Makale içeriği yükleniyor...
+                    </div>
+                </div>
             </article>
         </div>
     </section>
@@ -430,22 +401,239 @@
     <script src="../js/main.js" defer></script>
     <script>
         // FAQ Toggle
-        const faqItems = document.querySelectorAll('.faq-item');
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                    
+                    // Close other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Makale içeriğini yükle
+            loadMakaleContent();
+        });
+
+        function loadMakaleContent() {
+            fetch('../makaleler/makale.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Makale içeriği yüklenemedi');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // Makale içeriğini çıkar
+                    const contentContainer = document.getElementById('makale-content');
+                    contentContainer.innerHTML = '';
+                    
+                    // Body içindeki tüm içeriği al
+                    const bodyContent = doc.querySelector('body');
+                    
+                    if (bodyContent) {
+                        // Script etiketlerini kaldır
+                        const scripts = bodyContent.querySelectorAll('script');
+                        scripts.forEach(script => script.remove());
+                    
+                        // Tüm içeriği ekle
+                        const allContent = Array.from(bodyContent.children);
+                    
+                        // İçeriği filtrele ve düzenle
+                        const filteredContent = allContent.filter(element => {
+                            // Sadece belirli etiketleri al
+                            return ['P', 'H2', 'H3', 'H4', 'H5', 'H6', 'UL', 'OL', 'TABLE', 'IMG', 'DIV',"SECTION"].includes(element.tagName);
+                        });
+                    
+
+                        filteredContent.forEach(element => {
+                            // Özel durum
+                            if (element.classList && element.classList.contains('summary-section')) {
+                                // Özet bölümünü ekle
+                                contentContainer.appendChild(element.cloneNode(true));
+                            } else if (element.classList && element.classList.contains('author-section')) {
+                                // Yazar bölümünü ekle
+                                contentContainer.appendChild(element.cloneNode(true));
+                            } else if (element.classList && element.classList.contains('references-section')) {
+                                // Referanslar bölümünü ekle
+                                contentContainer.appendChild(element.cloneNode(true));
+                            } else if (element.tagName === 'IMG') {
+                                // Resimleri düzenle
+                                const img = element.cloneNode(true);
+                                img.classList.add('responsive-img');
+                                img.setAttribute('loading', 'lazy');
+                                contentContainer.appendChild(img);
+                            } else if (element.tagName === 'TABLE') {
+                                // Tabloları düzenle
+                                const table = element.cloneNode(true);
+                                contentContainer.appendChild(table);
+                            } else if (element.tagName === 'SECTION') {
+                                // SSS bölümünü kontrol et
+                                if (element.querySelector('h2') && element.querySelector('h2').textContent.includes('Sık Sorulan Sorular')) {
+                                    // SSS bölümünü işle, ama içeriği buraya ekleme
+                                    // SSS içeriği updateFAQFromMakale fonksiyonu ile ayrıca işlenecek
+                                } else {
+                                    // Diğer section elementlerini ekle
+                                    contentContainer.appendChild(element.cloneNode(true));
+                                }
+                            } else {
+                                // Diğer içerikleri ekle
+                                contentContainer.appendChild(element.cloneNode(true));
+                            }
+                        });
+                    
+                        // Linkleri düzelt
+                        fixLinks(contentContainer);
+                    
+                        // SSS bölümünü güncelle
+                        updateFAQFromMakale(doc);
+                    } else {
+                        throw new Error('Makale içeriği bulunamadı');
+                    }
+                })
+                .catch(error => {
+                    console.error('Makale yükleme hatası:', error);
+                    document.getElementById('makale-content').innerHTML = `
+                    <div class="error-message">
+                        <p><i class="fa-solid fa-triangle-exclamation"></i> Makale içeriği yüklenirken bir hata oluştu.</p>
+                        <p>Hata detayı: ${error.message}</p>
+                        <button onclick="loadMakaleContent()" class="btn btn-primary">Tekrar Dene</button>
+                    </div>
+                `;
+            });
+    }
+
+    function updateFAQFromMakale(doc) {
+        // Makaledeki SSS bölümünü bul
+        const faqSection = doc.querySelector('.faq-section');
         
+        if (!faqSection) {
+            console.log('Makalede SSS bölümü bulunamadı');
+            return;
+        }
+        
+        // Makaledeki soruları ve cevapları al
+        const faqItems = faqSection.querySelectorAll('div > div');
+        
+        if (faqItems.length === 0) {
+            console.log('Makalede SSS soruları bulunamadı');
+            return;
+        }
+        
+        // Mevcut SSS bölümünü bul
+        const currentFaqContainer = document.querySelector('.faq-container');
+        
+        if (!currentFaqContainer) {
+            console.log('Mevcut SSS bölümü bulunamadı');
+            return;
+        }
+        
+        // Mevcut SSS bölümünü temizle
+        currentFaqContainer.innerHTML = '';
+        
+        // Makaledeki soruları ve cevapları ekle
         faqItems.forEach(item => {
+            const questionElement = item.querySelector('p:first-child');
+            const answerElement = item.querySelector('p:last-child');
+            
+            if (questionElement && answerElement) {
+                const question = questionElement.textContent.trim();
+                const answer = answerElement.textContent.trim();
+                
+                if (question && answer) {
+                    const faqItemHTML = `
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>${question}</h3>
+                                <span class="faq-toggle"></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>${answer}</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    currentFaqContainer.innerHTML += faqItemHTML;
+                }
+            }
+        });
+        
+        // FAQ Toggle işlevselliğini yeniden ekle
+        const newFaqItems = document.querySelectorAll('.faq-item');
+        
+        newFaqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             
             question.addEventListener('click', () => {
                 item.classList.toggle('active');
                 
                 // Close other FAQ items
-                faqItems.forEach(otherItem => {
+                newFaqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
                     }
                 });
             });
         });
-    </script>
+    }
+
+    function fixLinks(container) {
+        // Tüm linkleri düzelt
+        const links = container.querySelectorAll('a');
+        links.forEach(link => {
+            // Dış bağlantıları yeni sekmede aç
+            if (link.getAttribute('href') && link.getAttribute('href').startsWith('http')) {
+                link.setAttribute('target', '_blank');
+                
+                // rel="nofollow" olan linkleri koru, diğerlerine noopener noreferrer ekle
+                if (link.getAttribute('rel') === 'nofollow') {
+                    link.setAttribute('rel', 'nofollow noopener noreferrer');
+                } else {
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+            }
+        });
+        
+        // Tüm resimleri düzelt
+        const images = container.querySelectorAll('img');
+        images.forEach(img => {
+            // Responsive sınıfı ekle
+            img.classList.add('responsive-img');
+            // Lazy loading ekle
+            img.setAttribute('loading', 'lazy');
+            // Alt etiketi yoksa ekle
+            if (!img.hasAttribute('alt') || img.getAttribute('alt') === '') {
+                img.setAttribute('alt', 'Beyaz Eşya Servisi Görseli');
+            }
+        });
+        
+        // Başlık seviyelerini düzelt (h1 -> h2, h2 -> h3, vb.)
+        const headings = container.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        headings.forEach(heading => {
+            // Başlık seviyesini al
+            const level = parseInt(heading.tagName.substring(1));
+            
+            // Başlık seviyesini düzelt (h1 -> h2, h2 -> h3, vb.)
+            if (level === 1) {
+                // h1'i h2 yap
+                const newHeading = document.createElement('h2');
+                newHeading.innerHTML = heading.innerHTML;
+                newHeading.className = heading.className;
+                heading.parentNode.replaceChild(newHeading, heading);
+            }
+        });
+    }
+</script>
 </body>
 </html>
