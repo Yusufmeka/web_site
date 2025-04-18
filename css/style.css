@@ -1431,3 +1431,149 @@ footer {
     flex: 0 0 100%;
   }
 }
+
+
+/* Makale içeriği için ek stiller */
+.makale-content {
+    line-height: 1.7;
+}
+
+.makale-content h2 {
+    font-size: 1.8rem;
+    margin: 30px 0 20px;
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+.makale-content h3 {
+    font-size: 1.4rem;
+    margin: 25px 0 15px;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.makale-content h4, 
+.makale-content h5, 
+.makale-content h6 {
+    font-size: 1.2rem;
+    margin: 20px 0 15px;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.makale-content p {
+    margin-bottom: 15px;
+}
+
+.makale-content ul,
+.makale-content ol {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.makale-content ul li,
+.makale-content ol li {
+    margin-bottom: 10px;
+}
+
+.makale-content ul {
+    list-style-type: disc;
+}
+
+.makale-content ol {
+    list-style-type: decimal;
+}
+
+.makale-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+.makale-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.makale-content a:hover {
+    text-decoration: underline;
+}
+
+.makale-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.makale-content table caption {
+    font-weight: 600;
+    padding: 10px;
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+}
+
+.makale-content th, 
+.makale-content td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.makale-content th {
+    background-color: var(--light-color);
+    font-weight: 600;
+}
+
+.makale-content tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.makale-content .summary-section,
+.makale-content .author-section,
+.makale-content .references-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.makale-content .summary-section h2,
+.makale-content .author-section h2,
+.makale-content .references-section h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.makale-content .author-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.makale-content .expertise {
+    margin-bottom: 15px;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 30px;
+    font-style: italic;
+    color: #777;
+}
+
+.loading-indicator i {
+    margin-right: 10px;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
